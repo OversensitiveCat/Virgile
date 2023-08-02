@@ -1,8 +1,17 @@
-import animateTitle from './features/animateTitle'
-import createBadge from './features/createBasge'
-import './styles/style.css'
+import bio from './assets/bio'
+import concerts from './assets/concerts'
+import contact from './assets/contact'
+import ham from './assets/ham'
+import hero from './assets/hero'
+import { setLenis } from './assets/lenis'
+import titres from './assets/titres'
 
-console.log('Welcome to Vite + JS + Webflow!')
-
-createBadge()
-animateTitle()
+window.addEventListener('DOMContentLoaded', () => {
+  setLenis()
+  hero()
+  bio()
+  ham()
+  titres()
+  concerts()
+  contact()
+})
