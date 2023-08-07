@@ -10,7 +10,7 @@ const width = () => {
 
   rectifyHeight()
 
-  window.addEventListener('.resize', rectifyHeight)
+  // window.addEventListener('resize', rectifyHeight)
 }
 
 export default width

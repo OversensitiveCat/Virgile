@@ -11,20 +11,21 @@ import nav from './assets/nav'
 import titres from './assets/titres'
 import width from './assets/width'
 
-window.addEventListener('load', () => {
-  console.log('load')
-  setLenis()
-  hero()
-  bio()
-  titres()
-  agenda()
-  width()
-  listen()
-  contact()
-  footer()
+if (document.readyState !== 'loading') {
+  console.log('document is already ready, just execute code here')
+}
 
-  let mm = gsap.matchMedia()
-  mm.add('(max-width: 991px)', () => nav())
-})
+setLenis()
+hero()
+bio()
+titres()
+agenda()
+width()
+listen()
+contact()
+footer()
+
+let mm = gsap.matchMedia()
+mm.add('(max-width: 991px)', () => nav())
 
 window.addEventListener('unload', () => window.scrollTo(0, 0))

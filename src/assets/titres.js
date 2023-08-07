@@ -18,11 +18,13 @@ const titres = () => {
   let titles = arr.elements.map(getChars)
   titles[0] = titles[0].concat(titles[1])
   titles.splice(1, 1)
+  let triggers = arr.elements.splice(1.1)
 
-  titles.forEach((chars) => {
+  titles.forEach((title) => {
+    let i = titles.indexOf(title)
+
     let tl = gsap.timeline({ paused: true })
-
-    tl.from(chars, {
+    tl.from(title, {
       opacity: 0,
       xPercent: -100,
       duration: 0.4,
@@ -32,19 +34,18 @@ const titres = () => {
       ease: 'power4.out',
       stagger: { amount: 0.5 },
     })
-
     ScrollTrigger.create({
-      trigger: chars,
+      trigger: triggers[i],
       start: 'top bottom',
       onLeaveBack: () => {
         tl.progress(0)
         tl.pause()
       },
     })
-
     ScrollTrigger.create({
-      trigger: chars,
+      trigger: triggers[i],
       start: 'top 80%',
+      markers: true,
       onEnter: () => tl.play(),
     })
   })
