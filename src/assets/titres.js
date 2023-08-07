@@ -45,7 +45,6 @@ const titres = () => {
     ScrollTrigger.create({
       trigger: triggers[i],
       start: 'top 80%',
-      markers: true,
       onEnter: () => tl.play(),
     })
   })
