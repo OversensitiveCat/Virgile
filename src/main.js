@@ -1,7 +1,4 @@
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 import agenda from './assets/agenda'
 import bio from './assets/bio'
@@ -13,13 +10,6 @@ import listen from './assets/listen'
 import nav from './assets/nav'
 import titres from './assets/titres'
 import width from './assets/width'
-
-if (document.readyState !== 'loading') {
-  ScrollTrigger.refresh()
-} else {
-  document.addEventListener('DOMContentLoaded', () => ScrollTrigger.refresh())
-  window.addEventListener('load', () => ScrollTrigger.refresh())
-}
 
 setLenis()
 hero()
