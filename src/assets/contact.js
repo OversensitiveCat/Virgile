@@ -1,31 +1,24 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SplitType from 'split-type'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const contact = () => {
-  const contactInfos = document.querySelectorAll('[letters-fade-in]')
-
-  contactInfos.forEach((info) => {
+  // Infos fade in
+  const infos = new SplitType('.contact-link-text', {
+    type: 'chars',
+    tagName: 'span',
+  })
+  infos.elements.forEach((info) => {
     let chars = info.querySelectorAll('.char')
-
     let tl = gsap.timeline({ paused: true })
 
     tl.from(chars, {
-      autoAlpha: 0,
       opacity: 0,
       duration: 0.2,
       ease: 'power1.out',
-      stagger: { amount: 0.8 },
-    })
-
-    ScrollTrigger.create({
-      trigger: info,
-      start: 'top bottom',
-      onLeaveBack: () => {
-        tl.progress(0)
-        tl.pause()
-      },
+      stagger: { amount: 0.5 },
     })
 
     ScrollTrigger.create({
@@ -33,11 +26,29 @@ const contact = () => {
       start: 'top 80%',
       onEnter: () => tl.play(),
     })
+
+    ScrollTrigger.create({
+      trigger: info,
+      start: 'top bottom',
+      onLeaveBack: () => tl.pause(0),
+    })
   })
 
-  gsap.from('.gold-circle_contact', {
+  // Infos hover
+  const links = gsap.utils.toArray('.link-contact')
+  links.forEach((link) => {
+    let dash = link.querySelector('.contact-dash')
+    let tl = gsap.timeline({ paused: true })
+    tl.from(dash, { width: 0, duration: 0.6, ease: 'power4.out' })
+    link.addEventListener('mouseenter', () => tl.play())
+    link.addEventListener('mouseleave', () => tl.reverse())
+  })
+
+  // Circle
+  let circle = document.querySelector('.gold-circle_contact')
+  gsap.from(circle, {
     scrollTrigger: {
-      trigger: '.gold-circle_contact',
+      trigger: circle,
       start: 'top 90%',
       end: 'top 30%',
       scrub: 2,
