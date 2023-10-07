@@ -18,7 +18,7 @@ const animItem = (items) => {
     })
     ScrollTrigger.create({
       trigger: item,
-      start: 'top bottom',
+      start: '-100% bottom',
       onLeaveBack: () => {
         tl.pause(0)
       },

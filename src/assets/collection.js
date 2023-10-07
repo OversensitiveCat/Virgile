@@ -25,10 +25,13 @@ const collection = () => {
   function divide(obj) {
     obj.columns = Math.floor(obj.items.length / 15)
     obj.remainder = obj.items.length % 15
+    if (obj.columns === 1) {
+      gsap.set(obj.button, { display: 'none' })
+    }
     return obj
   }
   objs = objs.map(divide)
-
+  console.log(objs)
   //
   function getArrays(obj) {
     let items = obj.items.slice()
@@ -48,7 +51,6 @@ const collection = () => {
     obj.more.forEach((arr) => {
       arr.forEach((item) => item.remove())
     })
-    // animItem(obj.current)
     return obj
   }
   objs = objs.map(getArrays)

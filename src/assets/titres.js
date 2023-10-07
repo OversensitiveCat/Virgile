@@ -36,7 +36,7 @@ const titres = () => {
     })
     ScrollTrigger.create({
       trigger: triggers[i],
-      start: 'top bottom',
+      start: '-100% bottom',
       onLeaveBack: () => {
         tl.progress(0)
         tl.pause()
