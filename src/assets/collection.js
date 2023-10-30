@@ -31,7 +31,6 @@ const collection = () => {
     return obj
   }
   objs = objs.map(divide)
-  console.log(objs)
   //
   function getArrays(obj) {
     let items = obj.items.slice()

@@ -1,13 +1,21 @@
-/* eslint-disable no-unused-vars */
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const listen = () => {
+  // Refresh when concerts photo is loaded
+  const photos = gsap.utils.toArray('.concerts-photo, .concerts-photo-mobile')
+  photos.forEach((photo) => {
+    photo.addEventListener('load', () => {
+      ScrollTrigger.refresh()
+    })
+  })
+
   // Pin
   let section = document.querySelector('.videos')
   let wrapper = document.querySelector('.vid-wrapper')
+  let container = document.querySelector('.vids-container')
 
   function translate() {
     gsap.to(wrapper, {
@@ -17,6 +25,7 @@ const listen = () => {
         start: 'top top',
         end: 'bottom bottom',
         scrub: 1,
+        pin: container,
       },
     })
   }
