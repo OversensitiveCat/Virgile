@@ -67,7 +67,8 @@ const collection = () => {
   // Past collections
   const yearsTop = gsap.utils.toArray('.div-year-top')
   const years = gsap.utils.toArray('.div-year')
-  const last = Array.from(years[2].querySelectorAll('.concert-item'))
+  const itemsTwentyOne = Array.from(years[2].querySelectorAll('.concert-item'))
+  const itemsTwenty = Array.from(years[3].querySelectorAll('.concert-item'))
   function open(div) {
     gsap.to(div, {
       height: 'auto',
@@ -100,7 +101,16 @@ const collection = () => {
     () => {
       open(years[2])
       gsap.set(yearsTop[2], { cursor: 'auto' })
-      animItem(last)
+      animItem(itemsTwentyOne)
+    },
+    { once: true }
+  )
+  yearsTop[3].addEventListener(
+    'click',
+    () => {
+      open(years[3])
+      gsap.set(yearsTop[3], { cursor: 'auto' })
+      animItem(itemsTwenty)
     },
     { once: true }
   )
