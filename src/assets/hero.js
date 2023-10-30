@@ -22,7 +22,7 @@ const hero = () => {
   )
 
   gsap.from(navLogo, {
-    y: '-88dvh',
+    y: '-88vh',
     width: '85%',
     scrollTrigger: {
       trigger: 'header',
