@@ -25,7 +25,7 @@ const bio = () => {
 
     ScrollTrigger.create({
       trigger: p,
-      start: 'top bottom',
+      start: '-50% bottom',
       onLeaveBack: () => {
         tl.pause(0)
       },

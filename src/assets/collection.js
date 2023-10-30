@@ -57,7 +57,12 @@ const collection = () => {
   // First collection
 
   animItem(objs[0].current)
-  animButton(objs[0].button)
+
+  if (objs[0].more.length === 0) {
+    objs[0].button.style.display = 'none'
+  } else {
+    animButton(objs[0].button)
+  }
 
   // Past collections
   const yearsTop = gsap.utils.toArray('.div-year-top')
