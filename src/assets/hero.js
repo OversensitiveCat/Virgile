@@ -1,6 +1,8 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import resizeX from '../utilities/resize'
+
 gsap.registerPlugin(ScrollTrigger)
 
 const hero = () => {
@@ -90,9 +92,10 @@ const hero = () => {
 
   gsap.set('header', { opacity: 1 })
 
-  window.addEventListener('resize', () => {
-    gsap.to(navDash, { width: '100%', duration: 0.25 })
-  })
+  const dashWidth = () => gsap.to(navDash, { width: '100%', duration: 0.25 })
+  const resize = resizeX(dashWidth, 250)
+
+  window.addEventListener('resize', resize)
 }
 
 export default hero
