@@ -8,12 +8,14 @@ import hero from './assets/hero'
 import { setLenis } from './assets/lenis'
 import listen from './assets/listen'
 import nav from './assets/nav'
+import press from './assets/press'
 import titres from './assets/titres'
 import width from './assets/width'
 
 setLenis()
 hero()
 bio()
+press()
 titres()
 agenda()
 width()
